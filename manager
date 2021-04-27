@@ -1,0 +1,52 @@
+#!/bin/bash
+if [ -z "$1" -o "$1" = "-h" ]; then
+	echo "usage: $0 [start | stop | screen | send]"
+	echo " start:  start the server"
+	echo " stop:   stop the server"
+	echo " status: get server status ('running' or 'stopped')"
+	echo " screen: reattach to the server's screen session"
+	echo " send:   send command to server"
+	echo "   - usage: $0 send COMMAND"
+	exit
+fi
+
+set -e
+
+cd mcman/
+
+source mcman.conf
+
+case $1 in
+	start)
+		if [ -f .mcman-lock ]; then
+			echo "server already running!"
+			exit;
+		fi
+		./scripts/start.sh
+		while [ ! -f .mcman-lock ]; do sleep 0.1; done
+		./scripts/reattach.sh
+		;;
+	stop)
+		if [ ! -f .mcman-lock ]; then
+			echo "server not running! (or lockfile not present)"
+			exit
+		fi
+		./scripts/stop.sh
+		;;
+	screen)
+		./scripts/reattach.sh
+		;;
+	send)
+		if [ -z "$2" ]; then
+			echo "$0 send: no text to send specified"
+			exit
+		fi
+		./scripts/send.sh "$2"
+		;;
+	status)
+		./scripts/status.sh
+		;;
+	*)
+		echo "$0: unknown action '$1'"
+		;;
+esac
