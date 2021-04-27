@@ -5,6 +5,8 @@ Made to be simple, easy and fast to set up and highly customizable.
 
 Runs servers in GNU Screen sessions.
 
+And could probably easily run other game servers, not only Minecraft.
+
 ## how to use
 
 ### installing
@@ -44,6 +46,8 @@ From `minecraft-server` run:
 ```shell
 ln -s mcman/mcman.conf .
 ```
+
+You'll probably also want to change the arguments passed to java: to do that, modify `mcman/scripts/server-run.sh`.
 
 Everything done! Now to run your new server:
 
