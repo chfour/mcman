@@ -39,12 +39,12 @@ git clone https://github.com/chfour/mcman.git
 
 A new directory called, well, `mcman` should now exist.
 
-After cloning the repo you now need to symlink `mcman/mcman.conf` to your server root.
+After cloning the repo you now need to symlink `mcman/manager` to your server root.
 
 From `minecraft-server` run:
 
 ```shell
-ln -s mcman/mcman.conf .
+ln -s mcman/manager .
 ```
 
 You'll probably also want to change the arguments passed to java: to do that, modify `mcman/scripts/server-run.sh`.
