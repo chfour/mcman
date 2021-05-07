@@ -23,10 +23,7 @@ Right now your directory structure should look something like this:
 
 ```text
  minecraft-server/ (your server's root)
-  |- logs/
-  |- paper.jar
-  |- server.properties
-    ...
+  - paper.jar (the only file)
 ```
 
 Now, in the root directory of the server (in this case `minecraft-server/`) clone this repository.
@@ -47,7 +44,7 @@ From `minecraft-server` run:
 ln -s mcman/manager .
 ```
 
-You'll probably also want to change the arguments passed to java: to do that, modify `mcman/scripts/server-run.sh`.
+You'll probably also want to change the arguments passed to java: to do that, modify the config file.
 
 Everything done! Now to run your new server:
 

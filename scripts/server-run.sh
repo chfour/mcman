@@ -20,12 +20,9 @@ echo "+======================================================================+"
 sleep 1
 echo "Starting server..."
 
-# modify the command here if you need to
-java -Xmx1800M -jar "$SERVER_JAR" nogui
+eval "$SERVER_CMD"
 
 echo "Server stopped."
-read -n 1 -s -r -p "Press any key to close this screen..."
+read -n 1 -s -r -p "Press any key..."
 
 rm mcman/.mcman-lock
-sleep 1
-
