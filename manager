@@ -12,7 +12,7 @@ fi
 
 set -e
 
-cd mcman/
+cd `dirname "$0"`
 
 source mcman.conf
 
