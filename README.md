@@ -11,13 +11,13 @@ And could probably easily run other game servers, not only Minecraft.
 
 ### installing
 
-You will of course need java installed on your machine. For Debian and Debian-based distros you can install `openjdk-11-jre-headless`.
+You will of course need a java runtime environment installed on your machine. You can install the openjdk headless version.
 
 Also ensure that `screen` is installed.
 
 First of all, create a directory somewhere for your server.
 
-You will also need to download a server .jar first. I recommend [Paper](https://papermc.io/).
+You will also need to download a server .jar first. I, and pretty much everyone else recommend [Paper](https://papermc.io/).
 
 Right now your directory structure should look something like this:
 
@@ -36,12 +36,18 @@ git clone https://github.com/chfour/mcman.git
 
 A new directory called, well, `mcman` should now exist.
 
-After cloning the repo you now need to symlink `mcman/manager` to your server root.
+After cloning the repo you can symlink `mcman/manager` to your server root.
 
-From `minecraft-server` run:
+To do that, from `minecraft-server` run:
 
 ```shell
 ln -s mcman/manager .
+```
+
+Now apply the default configuration file (do NOT edit `mcman.conf.dist`!):
+
+```shell
+cp mcman.conf.dist mcman.conf
 ```
 
 You'll probably also want to change the arguments passed to java: to do that, modify the config file.
@@ -65,9 +71,3 @@ Here the commands supported by mcman:
 * `./manager status` - get the status of a server (`running` or `stopped`)
 * `./manager screen` - shows the console of a server running in the background
 * `./manager send "say Hello World!"` - runs `say Hello World!` in a running server
-
-## contributing
-
-If you want to contribute to this project, you absolutely can!
-
-If you find a bug, but don't know how to fix it, or if you have a problem or maybe an idea, you can submit an issue. If you want to make direct changes, you can fork this repository, modify your fork, and then submit a pull request.
